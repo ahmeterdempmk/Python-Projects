@@ -8,7 +8,7 @@ from tkinter.filedialog import askopenfilename
 Tk().withdraw()
 
 # Ask user to select image file
-filename = askopenfilename(title='Select image file', filetypes=[('İmage files', '*.jpg;*.jpeg;*.png;*.bmp')])
+filename = askopenfilename(title='Select image file', filetypes=[('Image files', '*.jpg;*.jpeg;*.png;*.bmp')])
 
 if filename:
     # Read the image
