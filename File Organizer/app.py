@@ -11,13 +11,13 @@ def select_directory():
         organize_button.config(state=tk.NORMAL)
         status_label.config(text=f"Selected Directory: {directory}")
 
-#Main function to organize the files
+# Main function to organize the files
 def organize_files():
     if not directory:
         messagebox.showwarning("Warning", "No directory selected")
         return
 
-#We define file types
+# Define file types
     file_types = {
         'Images': ['.jpg', '.jpeg', '.png', '.gif', '.bmp'],
         'Documents': ['.pdf', '.docx', '.txt', '.xlsx', '.pptx'],
@@ -26,21 +26,25 @@ def organize_files():
         'Archives': ['.zip', '.rar', '.tar', '.gz'],
         'Scripts': ['.py', '.js', '.sh', '.bat', '.rb']
     }
-
+   
+     # For folder and extension in file_types list	
     for folder, extensions in file_types.items():
         folder_path = os.path.join(directory, folder)
         os.makedirs(folder_path, exist_ok=True)
-
+   
+        # For file in path
         for file in os.listdir(directory):
             file_path = os.path.join(directory, file)
             if os.path.isfile(file_path):
                 if any(file.endswith(ext) for ext in extensions):
                     shutil.move(file_path, os.path.join(folder_path, file))
 
+     # Set status and give a success message
     status_label.config(text="Files organized successfully")
     messagebox.showinfo("Success", "Files organized successfully")
 
 if __name__ == "__main__":
+
     #GUI
     window = tk.Tk()
     window.title("File Organizer")
