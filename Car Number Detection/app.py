@@ -29,4 +29,5 @@ if filename:
     # Print number of detected cars
     print('Number of cars detected in the picture: ' + str(label.count('car')))
 else:
+    # Give message
     print('No images selected.')
