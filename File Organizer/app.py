@@ -3,7 +3,7 @@ import shutil
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
-#Function to select the directory
+# Function to select the directory
 def select_directory():
     global directory
     directory = filedialog.askdirectory()
